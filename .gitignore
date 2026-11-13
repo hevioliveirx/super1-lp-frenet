@@ -1,0 +1,16 @@
+# Ficam só no computador de trabalho (decisão de Hevelyn em 2026-11-13)
+
+# Versões anteriores da página e da fonte
+Super1-LP-Frenet-v0.[1-4].html
+fonte/lp-v*.html
+
+# Prévias em imagem geradas pela conferência
+previas/
+
+# Cópia local das assinaturas 70% (as oficiais estão no s1_base, capítulo 03 do MIV)
+ativos-miv/
+
+# Prompt de passagem para a sessão do MIV
+prompt-sessao-miv-assinaturas-70.md
+
+__pycache__/

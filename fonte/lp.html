@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow" data-revisao>
+<title>Super1 · Plataforma de e-commerce multilojas</title>
+<meta name="description" content="O Super1 é uma plataforma de e-commerce multilojas. Atende uma loja e operações com filiais, franquias, revendas ou lojas parceiras, com envios pela Frenet no S1 Envios.">
+<!-- Rascunho {{VERSAO}}. Montado por build/montar-lp.py a partir de fonte/lp.html. Edite a fonte e monte de novo. -->
+<style>
+@font-face{font-family:"Google Sans Flex";src:url(data:font/ttf;base64,{{FONT_GSF}}) format("truetype");font-weight:100 1000;font-style:normal;font-display:block}
+
+/* Tokens do MIV 2.00 R007 (cap. 04): seis cores e tons 5%, 50% e 70% */
+:root{
+  --lilas-5:#F5F2FF;--lilas-50:#B6A4FF;--lilas-50-h:#A895F7;--lilas-70:#7B68BD;
+  --laranja-5:#FFE8E2;--laranja-70:#FC603C;
+  --amarelo-5:#F9FBD9;--amarelo-50:#EFF175;
+  --azul-5:#ECF8F6;--azul-50:#CAEAE7;--azul-70:#7DCDC3;
+  --preto:#111111;--branco:#FFFFFF;--neutro-claro:#EEEEEE;
+  --r-etiqueta:12px;--r-card:24px;--r-painel:48px;
+  --margem:16px;--largura:1320px;
+  --fonte:"Google Sans Flex",system-ui,sans-serif;
+  --suave:cubic-bezier(.2,.7,.2,1);
+  interpolate-size:allow-keywords;
+}
+@media (min-width:640px){:root{--margem:32px}}
+@media (min-width:1024px){:root{--margem:48px}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--branco);color:var(--preto);font-family:var(--fonte);font-size:17px;line-height:1.55;font-weight:400;font-optical-sizing:auto;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media (min-width:1024px){body{font-size:18px}}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:600;text-wrap:balance}
+ol,ul{margin:0;padding:0;list-style:none}
+.nw{white-space:nowrap}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.bloco{display:block}
+
+.conteudo{width:100%;max-width:calc(var(--largura) + 2*var(--margem));margin:0 auto;padding:0 var(--margem)}
+section{position:relative;padding:80px 0;overflow:hidden}
+@media (min-width:1024px){section{padding:120px 0}}
+
+/* Tipografia (cap. 05): Google Sans Flex em toda a página */
+h1{font-size:clamp(2.375rem,1.2rem + 3.4vw,4rem);line-height:1.03;letter-spacing:-.025em}
+h2{font-size:clamp(1.875rem,1.25rem + 2.2vw,3rem);line-height:1.06;letter-spacing:-.018em}
+h3{font-size:1.375rem;line-height:1.2;letter-spacing:-.006em}
+.lead{font-size:1.125rem;line-height:1.5;max-width:38em}
+@media (min-width:1024px){.lead{font-size:1.25rem}}
+.rotulo{font-size:.8125rem;line-height:1.2;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.nota{font-size:.875rem;line-height:1.45}
+.cabeca{position:relative;z-index:1;display:grid;gap:16px;max-width:46em;margin-bottom:48px;justify-items:start}
+@media (min-width:1024px){.cabeca{margin-bottom:64px}}
+.etiqueta{display:inline-block;border-radius:var(--r-etiqueta);padding:8px 16px}
+
+/* Botões (cap. 07): pílula, um principal por seção.
+   O rótulo usa a cor do fundo da seção e o botão, uma cor que já está na seção. */
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 32px;border-radius:999px;font:600 1rem/1.2 var(--fonte);text-decoration:none;text-align:center;cursor:pointer;border:0;transition:background-color .2s,transform .12s,box-shadow .2s}
+.botao:active{transform:scale(.97)}
+.botao .seta,.terciario .seta{display:inline-block;transition:transform .25s var(--suave)}
+.botao:hover .seta,.terciario:hover .seta{transform:translateX(4px)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--preto);outline-offset:2px;border-radius:8px}
+.escuro a:focus-visible,.escuro summary:focus-visible{outline-color:var(--lilas-50)}
+.b-preto{background:var(--preto);color:var(--lilas-50)}
+.b-preto:hover{background:#000}
+.b-lilas{background:var(--lilas-50);color:var(--preto)}
+.b-lilas:hover{background:var(--lilas-50-h)}
+.b-laranja{background:var(--laranja-70);color:var(--preto)}
+.b-laranja:hover{background:#E9552F}
+.secundario{background:transparent;color:var(--preto);border:1.5px solid var(--preto)}
+.secundario:hover{background:var(--lilas-5)}
+.terciario{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;text-decoration:none}
+.terciario:hover{text-decoration:underline;text-underline-offset:4px}
+@media (min-width:640px){.grande{min-height:56px;padding:16px 40px;font-size:1.0625rem}}
+.brilho{box-shadow:0 0 0 1px rgba(182,164,255,.35),0 0 24px rgba(182,164,255,.28)}
+
+/* Marcas de revisão: removidas na versão de publicação */
+.faixa-revisao{background:var(--amarelo-50);color:var(--preto);font-size:.875rem;line-height:1.4;padding:10px var(--margem);text-align:center;font-weight:500}
+.etiqueta-revisao{display:inline-flex;justify-self:start;gap:8px;align-items:center;background:var(--amarelo-50);color:var(--preto);border-radius:var(--r-etiqueta);padding:6px 12px;font-size:.875rem;font-weight:600;line-height:1.3}
+.lacuna{border:1.5px dashed currentColor;border-radius:var(--r-etiqueta);padding:12px 16px;font-size:.9375rem}
+
+/* Grafismos (cap. 06): acervo oficial, um ou dois por quadro, sangrando pela borda */
+.grafismo{position:absolute;z-index:0;pointer-events:none}
+.grafismo svg{width:100%;height:auto;overflow:visible}
+.f-amarelo path{fill:var(--amarelo-50)}
+.f-preto path{fill:var(--preto)}
+.f-azul path{fill:var(--azul-50)}
+.f-laranja path{fill:var(--laranja-70)}
+.f-lilas path{fill:var(--lilas-50)}
+.f-lilas-70 path{fill:var(--lilas-70)}
+.f-azul-70 path{fill:var(--azul-70)}
+.f-azul-laranja path{fill:url(#g-azul-laranja)}
+.f-laranja-lilas path{fill:url(#g-laranja-lilas)}
+.c-preto path{fill:none;stroke:var(--preto);stroke-width:3px;stroke-opacity:.8;vector-effect:non-scaling-stroke}
+@media (prefers-reduced-motion:no-preference){
+  .girar svg{animation:girar 90s linear infinite}
+  .girar-rapido svg{animation:girar 36s linear infinite}
+  .flutuar svg{animation:flutuar 10s ease-in-out infinite alternate}
+}
+@keyframes girar{to{transform:rotate(360deg)}}
+@keyframes flutuar{from{transform:translate(0,0) rotate(-4deg)}to{transform:translate(-12px,-18px) rotate(6deg)}}
+
+/* Revelação ao rolar (só com movimento permitido e JavaScript ativo) */
+.anim .revelar{opacity:0;transform:translateY(28px);transition:opacity .7s var(--suave),transform .7s var(--suave);transition-delay:calc(var(--d,0) * 120ms)}
+.anim .revelar.visivel{opacity:1;transform:none}
+
+/* Cabeçalho */
+.pular{position:absolute;left:var(--margem);top:-60px;background:var(--branco);padding:8px 16px;border-radius:var(--r-etiqueta);z-index:10}
+.pular:focus{top:8px}
+.topo{position:sticky;top:0;z-index:5;background:var(--branco);border-bottom:1px solid var(--neutro-claro)}
+.topo .conteudo{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px;padding-top:8px;padding-bottom:8px}
+.conjunto{display:flex;align-items:center;gap:24px}
+.marca{display:inline-flex;align-items:center;min-height:44px}
+.marca svg{height:30px;width:auto}
+/* Frenet: altura do x = 53,5% do arquivo, contra 58% do Super1. Fator 1,05 iguala a leitura; -6% alinha as linhas de base. */
+.parceiro svg{height:31.5px;width:auto;transform:translateY(-6%)}
+.topo .parceiro{display:none}
+@media (min-width:480px){.topo .parceiro{display:inline-flex}}
+.topo nav{display:none}
+.topo nav ul{display:flex;gap:32px}
+@media (min-width:1100px){.topo nav{display:block}}
+.topo nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-weight:500;font-size:.9688rem}
+.topo nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.topo .botao{white-space:nowrap;min-height:44px;padding:10px 20px;font-size:.9375rem}
+@media (max-width:479px){.topo .botao{padding:10px 16px}}
+
+/* 1 · Abertura: combinação C-01 (Lilás 50%, Amarelo 50%, Preto) */
+.abertura{padding:16px 0 80px}
+@media (min-width:1024px){.abertura{padding:16px 0 120px}}
+.painel{position:relative;overflow:hidden;border-radius:var(--r-painel);padding:48px 24px}
+@media (min-width:640px){.painel{padding:64px 48px}}
+@media (min-width:1024px){.painel{padding:80px 72px}}
+.abertura .painel{background:var(--lilas-50)}
+@media (min-width:1024px){
+  .abertura .painel{display:flex;align-items:center;padding:40px 64px;min-height:min(calc(100svh - 72px - 40px),820px)}
+  body:has(.faixa-revisao) .abertura .painel{min-height:min(calc(100svh - 72px - 40px - 40px),820px)}
+}
+.abertura .etiqueta{background:var(--preto);color:var(--amarelo-50)}
+.abertura h1{position:relative;z-index:1;font-size:clamp(2.375rem,1rem + 2.4vw,3rem)}
+.realce{background:linear-gradient(var(--amarelo-50),var(--amarelo-50)) no-repeat 0 88%/100% 38%;padding:0 .08em}
+.anim .realce{background-size:0% 38%;transition:background-size 1.1s var(--suave) .5s}
+.anim .carregada .realce{background-size:100% 38%}
+.abertura .grade{position:relative;z-index:1;display:grid;gap:48px;align-items:center;width:100%}
+@media (min-width:1024px){.abertura .grade{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px}}
+.abertura .texto{display:grid;gap:24px;justify-items:start}
+.abertura .acoes{margin-top:8px}
+@media (min-width:1024px){.abertura .lead{font-size:1.125rem}}
+.acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px}
+.abertura .grafismo{width:min(78vw,620px);right:-26%;bottom:-30%}
+@media (min-width:1024px){.abertura .grafismo{width:640px;right:-200px;bottom:-260px}}
+
+/* Selo (Ativo 2): forma pequena com palavra curta */
+.selo{position:absolute;z-index:2;width:112px;height:112px;top:-40px;right:-24px;display:grid;place-items:center;text-align:center}
+.selo .grafismo{position:absolute;inset:0;width:100%}
+.selo span{position:relative;z-index:1;color:var(--amarelo-50);font-size:.75rem;line-height:1.15;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+@media (min-width:640px){.selo{width:128px;height:128px;top:-52px;right:-36px}.selo span{font-size:.8125rem}}
+@media (min-width:1024px){.selo{width:116px;height:116px;top:-24px;right:-28px}}
+
+/* Sequência animada: o caminho de um pedido e a rota de envio (cap. 09: um passo de cada vez) */
+.caminho{position:relative;background:var(--preto);color:var(--branco);border-radius:var(--r-card);padding:40px 24px 32px}
+@media (min-width:640px){.caminho{padding:32px 32px 24px}}
+@media (min-width:1024px){.caminho{padding:28px 28px 20px}.caminho .passos li{padding-bottom:12px}.caminho .nota{margin-top:16px}.caminho .rotulo{margin-bottom:16px}}
+.caminho .rotulo{color:var(--amarelo-50);margin:0 104px 24px 0}
+.passos{position:relative;display:grid}
+.passos li{position:relative;display:grid;grid-template-columns:40px 1fr;gap:16px;padding-bottom:24px}
+.passos li:last-child{padding-bottom:0}
+.passos li::before{content:"";position:absolute;left:19px;top:40px;bottom:0;width:2px;background:rgba(255,255,255,.18)}
+.passos li:last-child::before{display:none}
+.passos .num{position:relative;z-index:1;width:40px;height:40px;border-radius:50%;background:var(--amarelo-50);color:var(--preto);display:grid;place-items:center;font-weight:600;transition:transform .35s var(--suave),box-shadow .35s}
+.passos strong{display:block;font-weight:600;font-size:1.0625rem;line-height:1.3;margin-top:8px}
+.passos .desc{display:block;font-size:.9688rem;line-height:1.45;margin-top:4px;opacity:.86}
+.caminho .nota{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);opacity:.86}
+.anim [data-sequencia] [data-passo]{opacity:.45;transition:opacity .4s}
+.anim [data-sequencia] [data-passo].feito,.anim [data-sequencia] [data-passo].ativo{opacity:1}
+.anim [data-sequencia] [data-passo].ativo .num{transform:scale(1.08)}
+.pacote{position:absolute;z-index:2;left:0;top:0;width:56px;height:56px;border-radius:50%;border:2px solid currentColor;opacity:0;transition:transform .7s var(--suave),opacity .3s;pointer-events:none}
+.caminho .pacote{color:var(--amarelo-50)}
+.rota .pacote{color:var(--azul-50)}
+.anim .pacote{opacity:1}
+
+/* 2 · Frenet: combinação 087 (Preto, Laranja 70%, Azul 50%) */
+.frenet{background:var(--preto);color:var(--branco)}
+.frenet .rotulo{color:var(--azul-50)}
+.frenet{padding-bottom:240px}
+@media (min-width:1024px){.frenet{padding-bottom:120px}}
+.frenet .grafismo{width:340px;right:-90px;bottom:-130px}
+@media (min-width:1024px){.frenet .grafismo{width:520px;right:-170px;bottom:-250px}}
+.selo-parceria{display:inline-flex;align-items:center;gap:24px;background:var(--branco);border-radius:var(--r-card);padding:16px 28px}
+.selo-parceria .marca svg{height:30px}
+.selo-parceria .parceiro svg{height:31.5px}
+.frenet .topo-secao{position:relative;z-index:1;display:grid;gap:40px}
+@media (min-width:1024px){.frenet .topo-secao{grid-template-columns:1.25fr .75fr;align-items:end;gap:64px}}
+.frenet h2{max-width:15em}
+.economia{display:grid;gap:8px;justify-items:start}
+.economia .numero{font-size:clamp(4.5rem,3rem + 6vw,8rem);line-height:.9;font-weight:600;letter-spacing:-.04em;color:var(--laranja-70);font-variant-numeric:tabular-nums}
+.economia .numero small{font-size:.42em;letter-spacing:-.01em;margin-right:.12em}
+.economia p{max-width:20em}
+.rota{position:relative;z-index:1;margin-top:64px;background:#1C1C1C;border-radius:var(--r-card);padding:32px 24px}
+@media (min-width:640px){.rota{padding:40px}}
+.rota .passos li::before{background:rgba(255,255,255,.18)}
+.rota .num{background:var(--azul-50)}
+.tag{display:inline-block;justify-self:start;border-radius:8px;padding:4px 10px;font-size:.75rem;font-weight:600;letter-spacing:.04em;line-height:1.3;color:var(--preto);margin-top:8px}
+.tag.t-frenet{background:var(--azul-50)}
+.tag.t-s1{background:var(--laranja-70)}
+.rota .passos strong{margin-top:8px}
+@media (min-width:1024px){
+  .rota .passos{grid-template-columns:repeat(4,1fr);gap:32px}
+  .rota .passos li{grid-template-columns:1fr;gap:0;padding-bottom:0;align-content:start}
+  .rota .passos li::before{left:40px;right:-32px;top:19px;bottom:auto;width:auto;height:2px}
+  .rota .passos li:last-child::before{display:none}
+}
+.transportadoras{position:relative;z-index:1;margin-top:40px;display:grid;gap:16px}
+.letreiro{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.letreiro ul{display:flex;gap:12px;width:max-content}
+.letreiro li{background:var(--azul-50);color:var(--preto);border-radius:999px;padding:10px 20px;font-weight:600;white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){.letreiro ul{animation:correr 32s linear infinite}.letreiro:hover ul{animation-play-state:paused}}
+@keyframes correr{to{transform:translateX(calc(-50% - 6px))}}
+@media (prefers-reduced-motion:reduce){.letreiro{-webkit-mask-image:none;mask-image:none}.letreiro ul{flex-wrap:wrap;width:auto}.letreiro .copia{display:none}}
+.frenet .rodape-secao{position:relative;z-index:1;margin-top:40px;display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:flex-start;max-width:52em}
+
+/* 3 · Para quem é: combinação T70-10 (Azul 5%, Azul 70%, Preto) */
+.operacoes{background:var(--azul-5)}
+.cartoes{display:grid;gap:16px}
+@media (min-width:640px){.cartoes{grid-template-columns:repeat(2,1fr);gap:24px}}
+.cartao{background:var(--branco);border-radius:var(--r-card);padding:32px 24px;display:grid;gap:16px;align-content:start}
+@media (min-width:1024px){.cartao{padding:40px}}
+.cartao p{font-size:1rem;line-height:1.5}
+.icone{width:56px;height:56px;border-radius:var(--r-etiqueta);background:var(--azul-70);display:grid;place-items:center}
+.icone svg{width:26px;height:26px;stroke:var(--preto);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* 4 · Como funciona: combinação 043 (Amarelo 50%, Lilás 50%, Preto) */
+.funciona{background:var(--amarelo-50)}
+.camadas{position:relative;z-index:1;display:grid}
+@media (min-width:1024px){.camadas{grid-template-columns:1fr 168px 1fr 168px 1fr;align-items:stretch}}
+.camada{background:var(--lilas-50);border-radius:var(--r-card);padding:32px 24px;display:grid;gap:8px;align-content:start}
+.camada .rotulo{justify-self:start;background:var(--branco);border-radius:var(--r-etiqueta);padding:6px 12px}
+.camada p{font-size:1rem;line-height:1.5}
+.camada .quem{font-weight:600;margin-top:8px}
+.conector{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:16px 0;text-align:center}
+.conector .verbo{font-size:.875rem;font-weight:600;line-height:1.3;max-width:13em;text-wrap:balance}
+.conector .flecha{position:relative;width:2px;height:32px;background:var(--preto);transform-origin:top}
+.conector .flecha::after{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid var(--preto)}
+@media (min-width:1024px){
+  .conector{padding:0 16px}
+  .conector .flecha{width:100%;height:2px;transform-origin:left}
+  .conector .flecha::after{left:auto;right:-6px;bottom:auto;top:50%;transform:translateY(-50%);border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:9px solid var(--preto);border-right:0}
+}
+.anim .conector .flecha{transform:scale(1,0);transition:transform .8s var(--suave);transition-delay:calc(var(--d,0) * 160ms + 200ms)}
+@media (min-width:1024px){.anim .conector .flecha{transform:scale(0,1)}}
+.anim .conector.visivel .flecha{transform:none}
+.resumo{position:relative;z-index:1;margin-top:48px;font-size:clamp(1.25rem,1rem + .9vw,1.75rem);line-height:1.3;font-weight:500;max-width:30em;text-wrap:balance}
+.funciona .nota{position:relative;z-index:1;margin-top:16px}
+.padrao-raio{position:absolute;z-index:0;top:40px;right:-60px;width:720px;height:auto;fill:var(--preto);opacity:.08;pointer-events:none;display:none}
+@media (min-width:1024px){.padrao-raio{display:block}}
+
+/* 5 · Soluções: cada card em uma combinação aprovada, com o grafismo do próprio produto */
+.produtos{display:grid;gap:16px}
+@media (min-width:760px){.produtos{grid-template-columns:repeat(2,1fr);gap:24px}}
+@media (min-width:1100px){.produtos{grid-template-columns:repeat(3,1fr)}}
+.produto{position:relative;overflow:hidden;border-radius:var(--r-card);padding:32px 24px 136px;display:grid;gap:16px;align-content:start}
+@media (min-width:1024px){.produto{padding:40px 40px 152px}}
+.produto .assinatura{position:relative;z-index:1}
+.produto .assinatura svg{height:32px;width:auto}
+.produto h3,.produto p,.produto ul,.produto .corpo{position:relative;z-index:1}
+.produto p{font-size:1rem;line-height:1.5}
+.produto ul{display:grid;gap:8px;margin-top:4px}
+.produto li{position:relative;padding-left:22px;font-size:.9688rem;line-height:1.45}
+.produto li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:3px;background:currentColor}
+.produto .grafismo{width:160px;right:-36px;bottom:-44px;transition:transform .6s var(--suave)}
+.produto:hover .grafismo{transform:rotate(-12deg) scale(1.06)}
+.p-envios{background:var(--laranja-5);grid-column:1/-1}
+@media (min-width:1100px){.p-envios{grid-column:span 2}}
+.p-pay{background:var(--lilas-5)}
+.p-ledger{background:var(--azul-5)}
+.p-connect{background:var(--lilas-5)}
+.p-trust{background:var(--azul-5)}
+.p-envios .corpo{display:grid;gap:24px}
+@media (min-width:900px){.p-envios .corpo{grid-template-columns:1fr 1fr;gap:32px;align-items:start}}
+.p-envios .coluna{display:grid;gap:16px}
+.pela-frenet{background:var(--branco);border-radius:var(--r-card);padding:24px;display:grid;gap:12px;justify-items:start}
+.pela-frenet .parceiro svg{height:30px;transform:none}
+.pela-frenet .forte{font-weight:600;font-size:1.0625rem;line-height:1.35}
+
+/* 6 · Na prática: combinação 118-5 (Laranja 5%, Preto, Laranja 70%) */
+.na-pratica{background:var(--laranja-5)}
+.case{position:relative;z-index:1;display:grid;gap:32px}
+@media (min-width:1024px){.case{grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}}
+.case .cabeca{margin-bottom:0}
+.case-cartao{background:var(--preto);color:var(--branco);border-radius:var(--r-card);padding:40px 24px;display:grid;gap:32px}
+@media (min-width:640px){.case-cartao{padding:48px}}
+.case-cartao .etapa{display:grid;gap:8px}
+.case-cartao .rotulo{color:var(--laranja-70)}
+.case-cartao p{font-size:1rem;line-height:1.55}
+.na-pratica .grafismo{width:300px;left:-150px;bottom:-150px}
+@media (min-width:1024px){.na-pratica .grafismo{width:420px;left:-190px;bottom:-210px}}
+
+/* 7 · Perguntas: combinação E-02 (Lilás 5%, Branco, Lilás 50%) */
+.perguntas{background:var(--lilas-5)}
+.perguntas .lista{display:grid;gap:12px;max-width:52em;margin:0 auto}
+.perguntas .cabeca{margin-left:auto;margin-right:auto;justify-items:center;text-align:center}
+.perguntas .etiqueta-revisao{justify-self:center}
+details{background:var(--branco);border-radius:var(--r-card)}
+summary{cursor:pointer;list-style:none;padding:24px 72px 24px 24px;font-weight:600;font-size:1.0625rem;line-height:1.35;position:relative;border-radius:var(--r-card);min-height:44px;text-wrap:balance}
+@media (min-width:640px){summary{padding:24px 80px 24px 32px}}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:24px;top:50%;width:32px;height:32px;margin-top:-16px;border-radius:50%;background:var(--lilas-50);display:grid;place-items:center;font-size:1.25rem;line-height:1;font-weight:500;transition:transform .3s var(--suave)}
+details[open] summary::after{transform:rotate(45deg)}
+details::details-content{height:0;overflow:clip;transition:height .35s var(--suave),content-visibility .35s allow-discrete}
+details[open]::details-content{height:auto}
+details .resposta{padding:0 24px 24px;font-size:1rem;line-height:1.55;display:grid;gap:12px}
+@media (min-width:640px){details .resposta{padding:0 32px 24px}}
+
+/* 8 · Contato e rodapé: combinação 014-NEG (Preto, Lilás 50%, Branco) e gradiente Laranja para Lilás */
+.contato{padding:0 0 80px;background:var(--lilas-5)}
+@media (min-width:1024px){.contato{padding:0 0 120px}}
+.contato .painel{background:var(--preto);color:var(--branco);padding-bottom:240px}
+@media (min-width:1024px){.contato .painel{padding-bottom:96px}}
+.contato .texto{position:relative;z-index:1;display:grid;gap:24px;justify-items:start;max-width:40em}
+.contato h2{font-size:clamp(1.875rem,1.25rem + 2vw,2.75rem)}
+.contato h2 .bloco{text-wrap:balance}
+.contato .grafismo{width:300px;right:-70px;bottom:-110px}
+@media (min-width:1024px){.contato .grafismo{width:520px;right:-120px;bottom:auto;top:-90px}}
+.rodape{padding:56px 0 40px;background:var(--preto);color:var(--branco)}
+.rodape .conteudo{display:grid;gap:24px}
+@media (min-width:760px){.rodape .conteudo{grid-template-columns:1fr auto;align-items:end}}
+.rodape p{font-size:.9375rem}
+.rodape a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.rodape a:hover{text-decoration:underline;text-underline-offset:4px}
+.rodape .linha-final{grid-column:1/-1;border-top:1px solid #333;padding-top:24px;font-size:.875rem}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Gradientes de marca (MIV cap. 04) -->
+    <linearGradient id="g-azul-laranja" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#CAEAE7"/><stop offset="1" stop-color="#FF603C"/></linearGradient>
+    <path id="s-raio" d="{{RAIO_D}}"/>
+    <linearGradient id="g-laranja-lilas" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FF603C"/><stop offset="1" stop-color="#B6A4FF"/></linearGradient>
+  </defs>
+</svg>
+<a class="pular" href="#principal">Pular para o conteúdo</a>
+
+<div class="faixa-revisao" data-revisao role="note">⚠ Rascunho {{VERSAO}} para revisão interna. Textos e destinos ainda não aprovados. Não publicar.</div>
+
+<header class="topo">
+  <div class="conteudo">
+    <div class="conjunto">
+      <a class="marca" href="#principal" aria-label="Super1, página inicial">{{LOGO_POSITIVO}}</a>
+      <span class="parceiro">{{PARCEIRO:frenet}}</span>
+    </div>
+    <nav aria-label="Seções da página">
+      <ul>
+        <li><a href="#frenet">Super1 e Frenet</a></li>
+        <li><a href="#operacoes">Para quem é</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#solucoes">Soluções</a></li>
+      </ul>
+    </nav>
+    <a class="botao secundario" href="#contato" data-evento="cabecalho_falar">Falar com a Super1</a>
+  </div>
+</header>
+
+<main id="principal">
+
+<!-- 1 · Abertura -->
+<section class="abertura" aria-labelledby="t-abertura">
+  <div class="conteudo">
+    <div class="painel">
+      <div class="grafismo f-amarelo girar" aria-hidden="true">{{GRAFISMO:Ativo 7}}</div>
+      <div class="grade">
+        <div class="texto revelar">
+          <span class="etiqueta rotulo">Super1 no Marketplace de Serviços da Frenet</span>
+          <h1 id="t-abertura">Seu e-commerce organizado do estoque <span class="realce">à entrega.</span></h1>
+          <p class="lead">O Super1 é uma plataforma de e-commerce multilojas. Atende uma loja e também operações com filiais, franquias, revendas ou lojas parceiras, organizando vitrine, estoque por loja, pedidos, envios e repasses de cada uma.</p>
+          <div class="acoes">
+            <a class="botao b-preto grande" href="{{DESTINO_CTA}}" data-cta data-evento="abertura_avaliacao">Agende uma avaliação gratuita com especialista</a>
+            <a class="terciario" href="#frenet">Veja como funciona com a Frenet <span class="seta" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="caminho revelar" style="--d:3" data-sequencia role="group" aria-labelledby="t-caminho">
+          <div class="selo" aria-hidden="true"><div class="grafismo f-preto girar-rapido">{{GRAFISMO:Ativo 2}}</div><span>Parceria<br>Frenet</span></div>
+          <p class="rotulo" id="t-caminho">O caminho de um pedido</p>
+          <ol class="passos">
+            <li data-passo><span class="num" aria-hidden="true">1</span><div><strong>Vitrine</strong><span class="desc">O cliente compra no site da sua marca, com carrinho e pagamento únicos.</span></div></li>
+            <li data-passo><span class="num" aria-hidden="true">2</span><div><strong>Loja de origem</strong><span class="desc">O pedido sai da loja que tem o produto, conforme a regra da sua operação.</span></div></li>
+            <li data-passo><span class="num" aria-hidden="true">3</span><div><strong>Etiqueta pela Frenet</strong><span class="desc">A etiqueta sai para os Correios ou para a transportadora.</span></div></li>
+            <li data-passo><span class="num" aria-hidden="true">4</span><div><strong>Repasse</strong><span class="desc">O valor de cada loja fica registrado no extrato.</span></div></li>
+          </ol>
+          <span class="pacote" aria-hidden="true"></span>
+          <p class="nota">Exemplo ilustrativo. As etapas variam conforme o modelo da operação.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · Super1 e Frenet -->
+<section class="frenet escuro" id="frenet" aria-labelledby="t-frenet">
+  <div class="grafismo f-azul-laranja flutuar" aria-hidden="true">{{GRAFISMO:Ativo 10}}</div>
+  <div class="conteudo">
+    <div class="topo-secao">
+      <div class="cabeca revelar" style="margin-bottom:0">
+        <div class="selo-parceria">
+          <span class="marca" role="img" aria-label="Super1">{{LOGO_POSITIVO}}</span>
+          <span class="parceiro">{{PARCEIRO:frenet}}</span>
+        </div>
+        <p class="rotulo">S1 Envios com a Frenet</p>
+        <h2 id="t-frenet">Frete e etiqueta pela Frenet, direto no painel do Super1.</h2>
+        <p class="lead">O S1 Envios usa a Frenet para cotar o frete, gerar a etiqueta e acompanhar cada envio pelos Correios e pelas transportadoras, sem sair da plataforma.</p>
+      </div>
+      <div class="economia revelar" style="--d:1">
+        <p class="numero" aria-label="até 80%"><small>até</small><span data-contar="80">80</span>%</p>
+        <p><strong>Economize até 80% nos envios pelos Correios com o S1 Envios.</strong></p>
+        <p class="nota">Economia máxima possível. O valor varia conforme cada envio.</p>
+      </div>
+    </div>
+
+    <div class="rota revelar" data-sequencia role="group" aria-labelledby="t-rota">
+      <p class="rotulo" id="t-rota" style="margin-bottom:32px">Quem faz cada etapa do envio</p>
+      <ol class="passos">
+        <li data-passo><span class="num" aria-hidden="true">1</span><div><span class="tag t-frenet">Frenet</span><strong>Cotação no checkout</strong><span class="desc">O cliente escolhe o frete entre Correios e transportadoras.</span></div></li>
+        <li data-passo><span class="num" aria-hidden="true">2</span><div><span class="tag t-s1">S1 Envios</span><strong>Loja de origem</strong><span class="desc">O pedido sai do estoque mais adequado, conforme a regra da operação.</span></div></li>
+        <li data-passo><span class="num" aria-hidden="true">3</span><div><span class="tag t-frenet">Frenet</span><strong>Etiqueta automática</strong><span class="desc">A etiqueta já sai pronta para a postagem.</span></div></li>
+        <li data-passo><span class="num" aria-hidden="true">4</span><div><span class="tag t-s1">S1 Envios</span><strong>Rastreio para o cliente</strong><span class="desc">O link de rastreio aparece na área do pedido.</span></div></li>
+      </ol>
+      <span class="pacote" aria-hidden="true"></span>
+    </div>
+
+    <div class="transportadoras revelar">
+      <p class="rotulo">Correios e transportadoras pela Frenet</p>
+      <div class="letreiro">
+        <ul>
+          <li>Correios</li><li>Jadlog</li><li>Loggi</li><li>Total Express</li><li>J&amp;T Express</li><li>iMile</li>
+          <li class="copia" aria-hidden="true">Correios</li><li class="copia" aria-hidden="true">Jadlog</li><li class="copia" aria-hidden="true">Loggi</li><li class="copia" aria-hidden="true">Total Express</li><li class="copia" aria-hidden="true">J&amp;T Express</li><li class="copia" aria-hidden="true">iMile</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape-secao revelar">
+      <p class="nota lacuna" data-revisao>A confirmar com produto: quem já tem conta na Frenet usa a própria conta no S1 Envios?</p>
+      <a class="botao b-laranja" href="#solucoes" data-evento="frenet_solucoes">Veja tudo o que o S1 Envios faz <span class="seta" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Para quem é -->
+<section class="operacoes" id="operacoes" aria-labelledby="t-operacoes">
+  <div class="conteudo">
+    <div class="cabeca revelar">
+      <p class="rotulo">Para quem é</p>
+      <h2 id="t-operacoes">Uma loja ou várias, na mesma plataforma.</h2>
+      <p class="lead">Multilojas quer dizer que o Super1 organiza a venda online de cada loja da operação. Veja o que isso permite em cada caso.</p>
+    </div>
+    <ul class="cartoes">
+      <li class="cartao revelar">
+        <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></svg></span>
+        <h3>Uma loja</h3>
+        <p>Crie ou migre o seu e-commerce com vitrine, checkout, frete e integração com os seus sistemas. Se a operação crescer, a mesma base acompanha.</p>
+      </li>
+      <li class="cartao revelar" style="--d:1">
+        <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <h3>Filiais e marcas do grupo</h3>
+        <p>Cada loja física vira estoque de apoio. O pedido sai da unidade que tem o produto, e cada loja acompanha as próprias vendas e o que tem a receber.</p>
+      </li>
+      <li class="cartao revelar">
+        <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></span>
+        <h3>Franquias e revendas</h3>
+        <p>A marca organiza a vitrine e as regras da venda online. Cada franqueado ou revenda opera a sua parte, conforme o modelo combinado entre a marca e os parceiros.</p>
+      </li>
+      <li class="cartao revelar" style="--d:1">
+        <span class="icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span>
+        <h3>Lojas parceiras</h3>
+        <p>Reúna empresas parceiras em um só site, com carrinho e pagamento únicos. A operação define comissão e regras, e cada loja recebe o que vendeu.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4 · Como funciona -->
+<section class="funciona" id="como-funciona" aria-labelledby="t-funciona">
+  <svg class="padrao-raio" viewBox="0 0 900 700" aria-hidden="true" focusable="false">
+    <use href="#s-raio" transform="translate(470 -40) scale(.26)"/>
+    <use href="#s-raio" transform="translate(690 180) scale(.26)"/>
+    <use href="#s-raio" transform="translate(470 400) scale(.26)"/>
+  </svg>
+  <div class="conteudo">
+    <div class="cabeca revelar">
+      <p class="rotulo">Como funciona</p>
+      <h2 id="t-funciona"><span class="bloco">Quem gerencia, quem vende</span> <span class="bloco">e quem compra.</span></h2>
+    </div>
+    <div class="camadas">
+      <div class="camada revelar">
+        <span class="rotulo">Gestão do ecossistema</span>
+        <p class="quem">Para quem administra a operação</p>
+        <p>Aprova e acompanha as lojas, define comissão e regras, cria promoções e decide como e quando o dinheiro é repassado.</p>
+      </div>
+      <div class="conector revelar" style="--d:1"><span class="verbo">define regras e repasses</span><span class="flecha" aria-hidden="true"></span></div>
+      <div class="camada revelar" style="--d:2">
+        <span class="rotulo">Gestão das lojas</span>
+        <p class="quem">Para cada loja</p>
+        <p>Cuida de catálogo, estoque, preço, pedidos, envio e trocas, e acompanha o extrato do que tem a receber.</p>
+      </div>
+      <div class="conector revelar" style="--d:3"><span class="verbo">publica ofertas e despacha pedidos</span><span class="flecha" aria-hidden="true"></span></div>
+      <div class="camada revelar" style="--d:4">
+        <span class="rotulo">Vitrine</span>
+        <p class="quem">Para quem compra</p>
+        <p>Um só lugar para comprar de todas as lojas, com carrinho e pagamento únicos e a identidade da sua marca.</p>
+      </div>
+    </div>
+    <p class="resumo revelar"><span class="bloco">Um só ambiente para quem compra,</span> <span class="bloco">autonomia para quem vende,</span> <span class="bloco">controle para quem gerencia.</span></p>
+    <p class="nota">Ilustração conceitual das partes da plataforma. Não é uma captura da interface.</p>
+  </div>
+</section>
+
+<!-- 5 · Soluções -->
+<section class="solucoes" id="solucoes" aria-labelledby="t-solucoes">
+  <div class="conteudo">
+    <div class="cabeca revelar">
+      <p class="rotulo">Soluções</p>
+      <h2 id="t-solucoes">Cinco produtos S1 do estoque ao extrato.</h2>
+      <p class="lead">Cada um cuida de uma parte da venda online, e todos trabalham juntos na plataforma.</p>
+    </div>
+    <div class="produtos">
+
+      <article class="produto p-envios revelar" aria-labelledby="t-envios">
+        <div class="grafismo f-laranja" aria-hidden="true">{{GRAFISMO:Ativo 10}}</div>
+        <span class="assinatura">{{PRODUTO:S1-Envios-contextual-Orange-70-positivo}}</span>
+        <div class="corpo">
+          <div class="coluna">
+            <h3 id="t-envios">Do estoque à porta do cliente.</h3>
+            <p>Estoque separado por endereço, escolha da loja de origem de cada item e envio feito pela própria loja. Se faltar um produto na separação, outra loja do grupo pode assumir o envio.</p>
+            <ul>
+              <li>Retirada na loja e entrega própria por região</li>
+              <li>Promoção de frete por região, loja, categoria ou produto</li>
+              <li>Etiqueta automática e rastreio para o cliente</li>
+              <li>Troca e devolução com etiqueta de envio reverso</li>
+            </ul>
+          </div>
+          <div class="pela-frenet">
+            <span class="parceiro">{{PARCEIRO:frenet}}</span>
+            <p>Correios, Jadlog, Loggi, Total Express, J&amp;T Express e iMile pela Frenet, com cotação, etiqueta e rastreio no mesmo painel.</p>
+            <p class="forte">Economize até 80% nos envios pelos Correios com o S1 Envios.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="produto p-pay revelar" style="--d:1" aria-labelledby="t-pay">
+        <div class="grafismo f-lilas-70" aria-hidden="true">{{GRAFISMO:Ativo 1}}</div>
+        <span class="assinatura">{{PRODUTO:S1-Pay-contextual-Purple-70-positivo}}</span>
+        <h3 id="t-pay">O valor da venda chega a quem vendeu.</h3>
+        <p>Checkout único com Pix, boleto e cartão à vista ou parcelado. O repasse para cada loja pode ser no ato, programado ou manual, conforme a configuração da operação.</p>
+      </article>
+
+      <article class="produto p-ledger revelar" aria-labelledby="t-ledger">
+        <div class="grafismo f-azul-70" aria-hidden="true">{{GRAFISMO:Ativo 5}}</div>
+        <span class="assinatura">{{PRODUTO:S1-Ledger-contextual-Blue-70-positivo}}</span>
+        <h3 id="t-ledger">Cada valor registrado, do pedido ao repasse.</h3>
+        <p>Extrato da loja e da operação, relatório de repasse por período e taxa congelada no momento do pagamento. Nenhum lançamento é apagado, e toda correção vira um novo registro.</p>
+      </article>
+
+      <article class="produto p-connect revelar" style="--d:1" aria-labelledby="t-connect">
+        <div class="grafismo f-lilas-70" aria-hidden="true">{{GRAFISMO:Ativo 8}}</div>
+        <span class="assinatura">{{PRODUTO:S1-Connect-contextual-Purple-70-positivo}}</span>
+        <h3 id="t-connect">Os sistemas que você já usa, conectados à loja.</h3>
+        <p>Conectores com os ERPs Bling e Tiny e com Nuvemshop, Shopify e Tray, integração com o Mercado Livre e API com webhooks para o que for sob medida.</p>
+      </article>
+
+      <article class="produto p-trust revelar" style="--d:2" aria-labelledby="t-trust">
+        <div class="grafismo f-laranja" aria-hidden="true">{{GRAFISMO:Ativo 9}}</div>
+        <span class="assinatura">{{PRODUTO:S1-Trust-contextual-Orange-70-positivo}}</span>
+        <h3 id="t-trust">Proteção nas compras com cartão.</h3>
+        <p>Listas de bloqueio por cliente, endereço, IP e dispositivo, conferidas antes de a compra com cartão seguir para o meio de pagamento. Funciona junto com o antifraude do próprio meio de pagamento.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Na prática (case pendente de autorização) -->
+<section class="na-pratica" id="na-pratica" aria-labelledby="t-case">
+  <div class="grafismo f-laranja flutuar" aria-hidden="true">{{GRAFISMO:Ativo 11}}</div>
+  <div class="conteudo case">
+    <div class="cabeca revelar">
+      <span class="etiqueta-revisao" data-revisao>⚠ Aguarda autorização da Mozaik</span>
+      <p class="rotulo">Na prática</p>
+      <h2 id="t-case">Lojas de ótica em uma só vitrine.</h2>
+      <p class="lead">A Mozaik reúne o portfólio das óticas A Graciosa, Grand Optical e Oticalli, com o estoque das lojas por trás do site.</p>
+    </div>
+    <div class="case-cartao escuro revelar" style="--d:1">
+      <div class="etapa">
+        <p class="rotulo">O desafio</p>
+        <p>Levar para a internet o portfólio das lojas de ótica do grupo sem separar o estoque online da operação física.</p>
+      </div>
+      <div class="etapa">
+        <p class="rotulo">Com o Super1</p>
+        <p>O estoque das lojas alimenta o site. Cada loja despacha os pedidos da própria oferta, o sistema de gestão do grupo está integrado à plataforma e as etiquetas saem pelo S1 Envios com a Frenet.</p>
+      </div>
+      <div class="etapa">
+        <p class="rotulo">O avanço</p>
+        <p class="lacuna" data-revisao>Espaço reservado para o avanço observado, com dado, fonte e autorização da Mozaik.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · Perguntas frequentes (opcional) -->
+<section class="perguntas" id="perguntas" aria-labelledby="t-perguntas">
+  <div class="conteudo">
+    <div class="cabeca revelar">
+      <span class="etiqueta-revisao" data-revisao>⚠ Seção opcional para a revisão decidir</span>
+      <p class="rotulo">Perguntas frequentes</p>
+      <h2 id="t-perguntas">Antes de conversar</h2>
+    </div>
+    <div class="lista revelar">
+      <details>
+        <summary>Preciso ter várias lojas para usar o Super1?</summary>
+        <div class="resposta"><p>Não. A plataforma atende uma loja e também operações com filiais, franquias, revendas ou lojas parceiras. A avaliação mostra o que faz sentido para o seu caso.</p></div>
+      </details>
+      <details>
+        <summary>Como o S1 Envios trabalha com a Frenet?</summary>
+        <div class="resposta"><p>A operação administra frete, cotação, etiqueta e rastreio no Super1, com os Correios e as transportadoras pela Frenet. Estoque por endereço, origem do envio, retirada na loja e entrega própria são do S1 Envios.</p></div>
+      </details>
+      <details>
+        <summary>Quais sistemas se conectam ao Super1?</summary>
+        <div class="resposta"><p>Bling e Tiny têm conectores homologados. Nuvemshop, Shopify e Tray também se conectam, e outros ERPs podem ser integrados por projeto, pela API.</p></div>
+      </details>
+      <details>
+        <summary>Quanto custa?</summary>
+        <div class="resposta"><p>Depende do desenho da operação. Na avaliação gratuita, um especialista entende o seu cenário e apresenta a proposta.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · Contato -->
+<section class="contato" id="contato" aria-labelledby="t-contato">
+  <div class="conteudo">
+    <div class="painel escuro">
+      <div class="grafismo f-laranja-lilas flutuar" aria-hidden="true">{{GRAFISMO:Ativo 3}}</div>
+      <div class="texto revelar">
+        <h2 id="t-contato"><span class="bloco">Como a sua operação vende hoje?</span> <span class="bloco">A gente mostra o próximo passo.</span></h2>
+        <p class="lead">Na avaliação gratuita, um especialista do Super1 entende o seu cenário e indica as soluções que fazem sentido para ele.</p>
+        <a class="botao b-lilas grande brilho" href="{{DESTINO_CTA}}" data-cta data-evento="contato_avaliacao">Agende uma avaliação gratuita com especialista <span class="seta" aria-hidden="true">→</span></a>
+        <p class="nota lacuna" data-revisao>Destino do botão a definir com a Lílian: formulário, WhatsApp ou agenda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape escuro">
+  <div class="conteudo">
+    <div style="display:grid;gap:16px">
+      <a class="marca" href="#principal" aria-label="Super1, página inicial">{{LOGO_NEGATIVO}}</a>
+      <p>Plataforma de e-commerce multilojas.</p>
+    </div>
+    <p><a href="https://www.instagram.com/super1oficial/" rel="noopener">@super1oficial</a></p>
+    <p class="linha-final">Super1 no Marketplace de Serviços da Frenet · 2026</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var raiz = document.documentElement;
+  var reduzir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Origem do tráfego: repassa utm_* e ref da URL aos links de conversão (data-cta). */
+  try {
+    var origem = new URLSearchParams(window.location.search), extras = [];
+    origem.forEach(function (v, k) { if (/^utm_|^ref$/.test(k)) extras.push([k, v]); });
+    if (extras.length) document.querySelectorAll('a[data-cta]').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      if (!/^https?:/i.test(href)) return;
+      var url = new URL(href);
+      extras.forEach(function (p) { if (!url.searchParams.has(p[0])) url.searchParams.set(p[0], p[1]); });
+      a.setAttribute('href', url.toString());
+    });
+  } catch (e) {}
+
+  /* Sem movimento: tudo aparece completo e parado, inclusive as etapas das sequências. */
+  if (reduzir || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('[data-passo]').forEach(function (p) { p.classList.add('feito'); });
+    return;
+  }
+  raiz.classList.add('anim');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { document.querySelector('.abertura').classList.add('carregada'); }); });
+
+  /* Revelação ao rolar */
+  var obs = new IntersectionObserver(function (itens) {
+    itens.forEach(function (i) { if (i.isIntersecting) { i.target.classList.add('visivel'); obs.unobserve(i.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  document.querySelectorAll('.revelar').forEach(function (el) { obs.observe(el); });
+
+  /* Contagem do número em destaque */
+  var contObs = new IntersectionObserver(function (itens) {
+    itens.forEach(function (i) {
+      if (!i.isIntersecting) return;
+      contObs.unobserve(i.target);
+      var el = i.target, alvo = +el.getAttribute('data-contar'), t0 = null;
+      function passo(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / 1400); el.textContent = Math.round(alvo * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(passo); }
+      el.textContent = '0'; requestAnimationFrame(passo);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('[data-contar]').forEach(function (el) { contObs.observe(el); });
+
+  /* Sequências: um passo de cada vez, com o pacote indo até a etapa ativa */
+  document.querySelectorAll('[data-sequencia]').forEach(function (seq) {
+    var passos = [].slice.call(seq.querySelectorAll('[data-passo]')), pacote = seq.querySelector('.pacote'), i = 0, timer = null;
+    function mostrar() {
+      passos.forEach(function (p, k) { p.classList.toggle('ativo', k === i); p.classList.toggle('feito', k < i); });
+      if (pacote) {
+        var n = passos[i].querySelector('.num'), a = seq.getBoundingClientRect(), b = n.getBoundingClientRect();
+        pacote.style.transform = 'translate(' + (b.left - a.left + b.width / 2 - 28) + 'px,' + (b.top - a.top + b.height / 2 - 28) + 'px)';
+      }
+      i = (i + 1) % passos.length;
+    }
+    new IntersectionObserver(function (itens) {
+      itens.forEach(function (it) {
+        if (it.isIntersecting && !timer) { mostrar(); timer = setInterval(mostrar, 1800); }
+        else if (!it.isIntersecting && timer) { clearInterval(timer); timer = null; }
+      });
+    }, { threshold: 0.3 }).observe(seq);
+  });
+})();
+</script>
+</body>
+</html>
